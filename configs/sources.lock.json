@@ -1,0 +1,19 @@
+{
+  "upstream": {
+    "repository": "https://github.com/JingbiaoMei/RGCL.git",
+    "commit": "5ba3a07c093b30db8e826655394e3955c856cba4"
+  },
+  "paper": "https://aclanthology.org/2025.emnlp-main.1215/",
+  "dataset": {
+    "repository": "Jingbiao/RA-HMD",
+    "revision": "ccfa88ad3f42dcc14d8e72dac22b7e274b67de2a",
+    "source": "https://huggingface.co/datasets/Jingbiao/RA-HMD",
+    "card_license": "cc-by-nc-4.0",
+    "local_root": "D:\\career-projects\\data\\MemeGuard\\raw\\ccfa88ad3f42dcc14d8e72dac22b7e274b67de2a"
+  },
+  "model": {
+    "repository": "Qwen/Qwen2-VL-2B-Instruct",
+    "revision": "895c3a49bc3fa70a340399125c650a463535e71c",
+    "local_root": "D:/career-projects/models/MemeGuard/895c3a49bc3fa70a340399125c650a463535e71c"
+  }
+}

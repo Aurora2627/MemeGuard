@@ -1,0 +1,36 @@
+{
+  "annotations": [
+    {
+      "split": "train",
+      "rows": 8500,
+      "label_counts": {
+        "0": 5481,
+        "1": 3019
+      },
+      "sha256": "acaa55cd20ebeee3d628a543fa097e87e69a039f02e5301a453b152558825d82",
+      "source": "data/FB/train.jsonl"
+    },
+    {
+      "split": "dev_seen",
+      "rows": 500,
+      "label_counts": {
+        "1": 247,
+        "0": 253
+      },
+      "sha256": "44eeb2165face8d05b9a01542f7c4070fc4d5ac9642ee125a5f9a6c7277a566b",
+      "source": "data/FB/dev_seen.jsonl"
+    },
+    {
+      "split": "test_seen",
+      "rows": 1000,
+      "label_counts": {
+        "1": 490,
+        "0": 510
+      },
+      "sha256": "dd0d387bacd67ce4db39fcfd805a0b4b9e10fe0feaafc3b189b41c4ef2e36a16",
+      "source": "data/FB/test_seen.jsonl"
+    }
+  ],
+  "pilot_records": 144,
+  "selection": "sha256 of fixed salt plus ID; no label-dependent sampling; test images and predictions untouched"
+}

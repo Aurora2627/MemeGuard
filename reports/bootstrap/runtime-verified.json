@@ -1,0 +1,10 @@
+{
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "torch": "2.6.0+cu124",
+  "cuda_build": "12.4",
+  "cuda_available": true,
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "transformers": "4.53.2",
+  "peft": "0.17.1",
+  "bitsandbytes": "0.48.1"
+}
