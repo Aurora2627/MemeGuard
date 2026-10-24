@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "started": "2026-10-23T22:24:16.950139+08:00",
+  "scope": "Capacity probe only: two training examples, two optimizer updates; no quality claim",
+  "seed": 17,
+  "finished": "2026-10-23T22:24:59.284495+08:00",
+  "steps": 2,
+  "losses": [
+    0.5851972699165344,
+    0.4464721977710724
+  ],
+  "trainable_parameters": 1089536,
+  "adapter_updated": true,
+  "peak_allocated_gib": 2.454672336578369,
+  "peak_reserved_gib": 3.23828125,
+  "source_sha256": "ea9a1912970f2039550e8b423129f10a2981b849508508c9ebe03d6eaa6cf36b"
+}

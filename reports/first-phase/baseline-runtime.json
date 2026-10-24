@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "started": "2026-10-23T22:21:45.491294+08:00",
+  "scope": "128-record development pilot only; not held-out test evidence",
+  "manifest_sha256": "79564770e59b672505070a39c67e03eb0e4ca65b76a4b6f6003ac138e05aacc4",
+  "torch": "2.6.0+cu124",
+  "transformers": "4.53.2",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "completed": 128,
+  "total": 128,
+  "finished": "2026-10-23T22:23:59.027552+08:00",
+  "seconds": 90.1015946000116,
+  "peak_allocated_gib": 1.4968461990356445,
+  "peak_reserved_gib": 2.3515625,
+  "score_definition": "P(label token 1 | label token in {0,1}); uncalibrated",
+  "predictions_sha256": "0b9fd20804e796fd2f3d70080c8df69c6646f5d1974cbea699b92dc507ded40b"
+}

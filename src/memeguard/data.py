@@ -14,9 +14,9 @@ def validate_row(row):
         raise ValueError("Expected binary integer label")
     if not str(row.get("id", "")) or not isinstance(row.get("text"), str):
         raise ValueError("Missing ID or caption")
-    if row.get("role") not in ("capacity_train", "development_pilot"):
+    if row.get("role") not in ("capacity_train", "sft_train", "development_pilot"):
         raise ValueError("Unreviewed pilot role")
-    expected = "train" if row["role"] == "capacity_train" else "dev_seen"
+    expected = "train" if row["role"] in ("capacity_train", "sft_train") else "dev_seen"
     if row.get("split") != expected:
         raise ValueError("Pilot role conflicts with upstream split")
 

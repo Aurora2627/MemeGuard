@@ -17,6 +17,23 @@
         "HF_HUB_OFFLINE": "1"
       },
       "console": "integratedTerminal"
+    },
+    {
+      "name": "MemeGuard: train fixed SFT epoch",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/train_sft.py",
+      "cwd": "${workspaceFolder}",
+      "python": "D:/career-projects/envs/memeguard/Scripts/python.exe",
+      "args": [
+        "--output",
+        "D:/career-projects/runs/MemeGuard/debug-sft-new"
+      ],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src",
+        "HF_HUB_OFFLINE": "1"
+      },
+      "console": "integratedTerminal"
     }
   ]
 }

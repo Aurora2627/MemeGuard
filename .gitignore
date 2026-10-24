@@ -18,3 +18,5 @@ reports/bootstrap/*launch.log
 reports/bootstrap/environment-install.log
 reports/bootstrap/environment-freeze.txt
 reports/bootstrap/*status.json
+
+reports/sft-v1/acquisition-status.json

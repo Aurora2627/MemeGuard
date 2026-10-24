@@ -1,3 +1,4 @@
+test_development_role_rejects_training_split (test_guard.GuardTests.test_development_role_rejects_training_split) ... ok
 test_known_confusion_matrix (test_guard.GuardTests.test_known_confusion_matrix) ... ok
 test_label_never_changes_prompt (test_guard.GuardTests.test_label_never_changes_prompt) ... ok
 test_missing_label_is_rejected (test_guard.GuardTests.test_missing_label_is_rejected) ... ok
@@ -5,9 +6,10 @@ test_nonfinite_prediction_rejected (test_guard.GuardTests.test_nonfinite_predict
 test_one_class_auc_is_missing (test_guard.GuardTests.test_one_class_auc_is_missing) ... ok
 test_pair_hash_normalizes_caption_whitespace (test_guard.GuardTests.test_pair_hash_normalizes_caption_whitespace) ... ok
 test_same_image_different_caption_is_not_same_pair (test_guard.GuardTests.test_same_image_different_caption_is_not_same_pair) ... ok
+test_sft_role_accepts_only_train_split (test_guard.GuardTests.test_sft_role_accepts_only_train_split) ... ok
 test_test_rows_cannot_be_training_pilot (test_guard.GuardTests.test_test_rows_cannot_be_training_pilot) ... ok
 
 ----------------------------------------------------------------------
-Ran 8 tests in 0.025s
+Ran 10 tests in 0.051s
 
 OK

@@ -15,6 +15,20 @@ class GuardTests(unittest.TestCase):
             "split": "train",
         }
 
+    def test_sft_role_accepts_only_train_split(self):
+        row = self.row()
+        row["role"] = "sft_train"
+        validate_row(row)
+        row["split"] = "dev_seen"
+        with self.assertRaises(ValueError):
+            validate_row(row)
+
+    def test_development_role_rejects_training_split(self):
+        row = self.row()
+        row["role"] = "development_pilot"
+        with self.assertRaises(ValueError):
+            validate_row(row)
+
     def test_missing_label_is_rejected(self):
         row = self.row()
         del row["label"]
