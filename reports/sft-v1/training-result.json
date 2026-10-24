@@ -1,0 +1,28 @@
+{
+  "status": "complete",
+  "started": "2026-10-24T10:05:38.052818+08:00",
+  "config": {
+    "manifest": "D:/career-projects/data/MemeGuard/sft-v1.json",
+    "training_examples": 1024,
+    "epochs": 1,
+    "seed": 17,
+    "rank": 8,
+    "alpha": 16,
+    "learning_rate": 0.0001,
+    "gradient_accumulation": 8,
+    "vision_encoder": "frozen",
+    "evaluation": "same frozen 128 dev rows as zero-shot; test untouched"
+  },
+  "manifest_sha256": "b6e3d543b3aeeafba7a798ebb40fd706262b5f989ca03c7eef03c8d20f215fa7",
+  "completed_examples": 1024,
+  "optimizer_steps": 128,
+  "last_loss": 0.15278704883530736,
+  "finished": "2026-10-24T10:43:06.205042+08:00",
+  "examples": 1024,
+  "epochs": 1,
+  "mean_loss": 0.18805247880038678,
+  "trainable_parameters": 1089536,
+  "seconds": 2151.0145801999606,
+  "peak_allocated_gib": 2.5596909523010254,
+  "peak_reserved_gib": 3.271484375
+}

@@ -20,3 +20,5 @@ reports/bootstrap/environment-freeze.txt
 reports/bootstrap/*status.json
 
 reports/sft-v1/acquisition-status.json
+
+reports/validation-v1/acquisition-status.json

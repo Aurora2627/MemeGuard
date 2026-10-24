@@ -1,0 +1,67 @@
+{
+  "scope": "Same 128 development examples; no held-out test claim",
+  "baseline": {
+    "n": 128,
+    "threshold": 0.5,
+    "tp": 69,
+    "fp": 48,
+    "fn": 4,
+    "tn": 7,
+    "accuracy": 0.59375,
+    "precision": 0.5897435897435898,
+    "recall": 0.9452054794520548,
+    "f1": 0.7263157894736842,
+    "auroc": 0.6387297633872977,
+    "auprc": 0.661634377962753
+  },
+  "sft": {
+    "n": 128,
+    "threshold": 0.5,
+    "tp": 34,
+    "fp": 9,
+    "fn": 39,
+    "tn": 46,
+    "accuracy": 0.625,
+    "precision": 0.7906976744186046,
+    "recall": 0.4657534246575342,
+    "f1": 0.5862068965517241,
+    "auroc": 0.6840597758405979,
+    "auprc": 0.7091179994472586
+  },
+  "deltas": {
+    "auroc": 0.04533001245330015,
+    "auprc": 0.04748362148450558,
+    "f1": -0.14010889292196016,
+    "accuracy": 0.03125,
+    "precision": 0.20095408467501485,
+    "recall": -0.4794520547945206
+  },
+  "training": {
+    "status": "complete",
+    "started": "2026-10-24T10:05:38.052818+08:00",
+    "config": {
+      "manifest": "D:/career-projects/data/MemeGuard/sft-v1.json",
+      "training_examples": 1024,
+      "epochs": 1,
+      "seed": 17,
+      "rank": 8,
+      "alpha": 16,
+      "learning_rate": 0.0001,
+      "gradient_accumulation": 8,
+      "vision_encoder": "frozen",
+      "evaluation": "same frozen 128 dev rows as zero-shot; test untouched"
+    },
+    "manifest_sha256": "b6e3d543b3aeeafba7a798ebb40fd706262b5f989ca03c7eef03c8d20f215fa7",
+    "completed_examples": 1024,
+    "optimizer_steps": 128,
+    "last_loss": 0.15278704883530736,
+    "finished": "2026-10-24T10:43:06.205042+08:00",
+    "examples": 1024,
+    "epochs": 1,
+    "mean_loss": 0.18805247880038678,
+    "trainable_parameters": 1089536,
+    "seconds": 2151.0145801999606,
+    "peak_allocated_gib": 2.5596909523010254,
+    "peak_reserved_gib": 3.271484375
+  }
+}
