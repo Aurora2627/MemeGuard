@@ -1,0 +1,99 @@
+{
+  "scope": "372 additional validation records; no official test claims",
+  "baseline": {
+    "fixed_0_5": {
+      "n": 372,
+      "threshold": 0.5,
+      "tp": 164,
+      "fp": 165,
+      "fn": 10,
+      "tn": 33,
+      "accuracy": 0.5295698924731183,
+      "precision": 0.49848024316109424,
+      "recall": 0.9425287356321839,
+      "f1": 0.6520874751491054,
+      "auroc": 0.6584958783234646,
+      "auprc": 0.616824696023101
+    },
+    "frozen_recall_target_threshold": {
+      "n": 372,
+      "threshold": 0.531209409236908,
+      "tp": 158,
+      "fp": 155,
+      "fn": 16,
+      "tn": 43,
+      "accuracy": 0.5403225806451613,
+      "precision": 0.5047923322683706,
+      "recall": 0.9080459770114943,
+      "f1": 0.648870636550308,
+      "auroc": 0.6584958783234646,
+      "auprc": 0.616824696023101
+    }
+  },
+  "sft": {
+    "fixed_0_5": {
+      "n": 372,
+      "threshold": 0.5,
+      "tp": 63,
+      "fp": 27,
+      "fn": 111,
+      "tn": 171,
+      "accuracy": 0.6290322580645161,
+      "precision": 0.7,
+      "recall": 0.3620689655172414,
+      "f1": 0.4772727272727273,
+      "auroc": 0.6821374666202252,
+      "auprc": 0.641680671411613
+    },
+    "frozen_recall_target_threshold": {
+      "n": 372,
+      "threshold": 0.11920291930437088,
+      "tp": 158,
+      "fp": 156,
+      "fn": 16,
+      "tn": 42,
+      "accuracy": 0.5376344086021505,
+      "precision": 0.5031847133757962,
+      "recall": 0.9080459770114943,
+      "f1": 0.6475409836065574,
+      "auroc": 0.6821374666202252,
+      "auprc": 0.641680671411613
+    }
+  },
+  "threshold_config": {
+    "scope": "Thresholds chosen on original 128 development records only; freeze before extra validation",
+    "target_recall": 0.9,
+    "baseline": {
+      "n": 128,
+      "threshold": 0.531209409236908,
+      "tp": 67,
+      "fp": 45,
+      "fn": 6,
+      "tn": 10,
+      "accuracy": 0.6015625,
+      "precision": 0.5982142857142857,
+      "recall": 0.9178082191780822,
+      "f1": 0.7243243243243244,
+      "auroc": 0.6387297633872977,
+      "auprc": 0.661634377962753
+    },
+    "sft": {
+      "n": 128,
+      "threshold": 0.11920291930437088,
+      "tp": 69,
+      "fp": 43,
+      "fn": 4,
+      "tn": 12,
+      "accuracy": 0.6328125,
+      "precision": 0.6160714285714286,
+      "recall": 0.9452054794520548,
+      "f1": 0.745945945945946,
+      "auroc": 0.6840597758405979,
+      "auprc": 0.7091179994472586
+    },
+    "prediction_sha256": {
+      "baseline": "0b9fd20804e796fd2f3d70080c8df69c6646f5d1974cbea699b92dc507ded40b",
+      "sft": "526692087692796222bb9db5e8620db98e1e701fb1b8f22863b6f7e7b4d6b483"
+    }
+  }
+}

@@ -35,3 +35,8 @@ VS Code 已提供 Python 调试入口。实验输出目录必须使用新目录�
 参考 [RA-HMD / RGCL](https://github.com/JingbiaoMei/RGCL) 与 [EMNLP 2025 论文](https://aclanthology.org/2025.emnlp-main.1215/)，本仓库开发独立的 Transformers/PEFT 实验流程。当前没有实现论文完整的联合损失与第二阶段检索训练，不声称复现论文结果。
 
 模型来自 [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct)，数据来自 [Jingbiao/RA-HMD](https://huggingface.co/datasets/Jingbiao/RA-HMD)。参考代码及数据分别遵循各自许可证，详见 NOTICE.md。
+
+
+## Second training round
+
+The first adapter scored AUROC 0.6821 versus baseline 0.6585 on 372 additional development records, but at frozen thresholds both recalled 90.80%, with 156 versus 155 false positives. Thus no high-recall operational improvement was established. Round two changes only the objective to binary label-token cross entropy; results are pending. These 372 examples now serve as reused development data, not untouched validation. See [protocol](docs/round-two.md).

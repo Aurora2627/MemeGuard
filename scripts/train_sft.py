@@ -15,16 +15,21 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from memeguard.common import read, save, sha, now
 from memeguard.data import audit_manifest
-from memeguard.runtime import load_model, encode
+from memeguard.runtime import load_model, encode, label_ids
+from memeguard.objectives import binary_label_loss
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--output", required=True, type=Path)
+    ap.add_argument("--config", type=Path, default=ROOT / "configs/sft-v1.json")
     args = ap.parse_args()
     out = args.output
     out.mkdir(parents=True, exist_ok=False)
-    cfg = read(ROOT / "configs/sft-v1.json")
+    cfg = read(args.config)
+    objective = cfg.get("objective", "answer_lm")
+    if objective not in ("answer_lm", "binary_label"):
+        raise ValueError("Unknown objective")
     state = {"status": "preparing", "started": now(), "config": cfg}
     save(out / "status.json", state)
     try:
@@ -91,14 +96,24 @@ def main():
         torch.cuda.reset_peak_memory_stats()
         start = time.perf_counter()
         model.train()
+        ids = label_ids(processor)
         optimizer.zero_grad(set_to_none=True)
         losses = []
         updates = 0
         with (out / "training.jsonl").open("w", encoding="utf-8") as log:
             for index, row in enumerate(rows):
-                inputs = encode(processor, row, answer=row["label"])
+                # Binary mode uses exactly the inference prompt, without answer leakage.
+                inputs = encode(
+                    processor,
+                    row,
+                    answer=row["label"] if objective == "answer_lm" else None,
+                )
                 result = model(**inputs, use_cache=False)
-                loss = result.loss
+                loss = (
+                    result.loss
+                    if objective == "answer_lm"
+                    else binary_label_loss(result.logits[:, -1, :], ids, row["label"])
+                )
                 if not torch.isfinite(loss):
                     raise ValueError("Nonfinite training loss")
                 losses.append(float(loss.detach()))
