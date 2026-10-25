@@ -39,4 +39,9 @@ VS Code 已提供 Python 调试入口。实验输出目录必须使用新目录�
 
 ## Second training round
 
-The first adapter scored AUROC 0.6821 versus baseline 0.6585 on 372 additional development records, but at frozen thresholds both recalled 90.80%, with 156 versus 155 false positives. Thus no high-recall operational improvement was established. Round two changes only the objective to binary label-token cross entropy; results are pending. These 372 examples now serve as reused development data, not untouched validation. See [protocol](docs/round-two.md).
+The first adapter scored AUROC 0.6821 versus baseline 0.6585 on 372 additional development records, but at frozen thresholds both recalled 90.80%, with 156 versus 155 false positives. Thus no high-recall operational improvement was established. Round two completed: AUROC 0.6781, frozen-threshold recall 92.53%, 157 false positives and 13 false negatives on reused development data. These 372 examples now serve as reused development data, not untouched validation. See [protocol](docs/round-two.md).
+
+
+## 完整实验报告与输入消融
+
+[实验报告](docs/experiment-report.zh-CN.md)记录两轮训练结果、数据划分和四组输入消融协议。第二轮未明显降低高召回误报；消融实验用于定位模态依赖，结果待完成。
