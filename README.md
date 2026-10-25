@@ -44,4 +44,4 @@ The first adapter scored AUROC 0.6821 versus baseline 0.6585 on 372 additional d
 
 ## 完整实验报告与输入消融
 
-[实验报告](docs/experiment-report.zh-CN.md)记录两轮训练结果、数据划分和四组输入消融协议。第二轮未明显降低高召回误报；消融实验用于定位模态依赖，结果待完成。
+[实验报告](docs/experiment-report.zh-CN.md)记录两轮训练结果、数据划分和四组输入消融协议。第二轮未明显降低高召回误报；四组消融已完成：完整图文 AUROC 0.6821、仅配文 0.5990、仅图片 0.6673、错配图片 0.5289。完整图文优于仅图片的增益尚不稳定，详见实验报告。

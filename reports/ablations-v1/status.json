@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "started": "2026-10-25T11:16:50.296266+08:00",
+  "scope": "Reused development diagnostics; not independent test",
+  "adapter_sha256": "127c1adfd8f5ba936db984a2a55eef1c6ef4a4d42e3ff6bbdaae27523547ac60",
+  "mode": "shuffled_image",
+  "split": "development",
+  "completed": 372,
+  "total": 372,
+  "updated": "2026-10-25T11:41:32.903950+08:00",
+  "finished": "2026-10-25T11:41:32.936435+08:00"
+}

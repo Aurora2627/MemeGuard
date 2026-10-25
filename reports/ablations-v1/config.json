@@ -1,0 +1,6 @@
+{
+  "adapter": "D:/career-projects/runs/MemeGuard/20261024-sft-v1/training/adapter",
+  "calibration_manifest": "D:/career-projects/data/MemeGuard/pilot-v1.json",
+  "development_manifest": "D:/career-projects/data/MemeGuard/validation-v1.json",
+  "audit_manifest": "D:/career-projects/data/MemeGuard/train-and-all-dev-v1.json"
+}

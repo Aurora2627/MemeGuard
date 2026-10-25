@@ -1,0 +1,29 @@
+{
+  "scope": "Paired stratified bootstrap on reused development examples; not training-seed or population uncertainty",
+  "resamples": 2000,
+  "seed": 17,
+  "joint_rerun_max_absolute_difference": 0.0,
+  "comparisons": {
+    "text_only": {
+      "auroc_difference": 0.08310112620457444,
+      "percentile_95_interval": [
+        0.04299895506792075,
+        0.12388540578195738
+      ]
+    },
+    "image_only": {
+      "auroc_difference": 0.014875769186114107,
+      "percentile_95_interval": [
+        -0.013715459189597035,
+        0.04420860907929866
+      ]
+    },
+    "shuffled_image": {
+      "auroc_difference": 0.15328573087193775,
+      "percentile_95_interval": [
+        0.07898598049460123,
+        0.22672994310925332
+      ]
+    }
+  }
+}

@@ -25,3 +25,8 @@ Add controlled binary-label objective experiment, retaining answer-LM baseline; 
 ## v0.5.0 - 2026-10-25
 
 Archive completed binary-objective training results; add fixed-adapter modality ablations, label-leakage/input-removal tests, and a Chinese experiment report. Ablation outcomes pending.
+
+
+## v0.5.1 - 2026-10-25
+
+Complete four-mode input ablation; publish aggregate metrics and paired 2000-resample AUROC intervals. Verify exact joint-score reproduction. No stable joint-vs-image-only gain established.
