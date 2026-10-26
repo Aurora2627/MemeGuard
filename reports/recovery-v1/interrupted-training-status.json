@@ -1,0 +1,21 @@
+{
+  "status": "training",
+  "started": "2026-10-26T11:42:08.759379+08:00",
+  "config": {
+    "manifest": "D:/career-projects/data/MemeGuard/scale-v1.json",
+    "training_examples": 4096,
+    "epochs": 1,
+    "seed": 17,
+    "rank": 8,
+    "alpha": 16,
+    "learning_rate": 0.0001,
+    "gradient_accumulation": 8,
+    "vision_encoder": "frozen",
+    "evaluation": "128 threshold selection; reused 372 development comparison; official test deferred until model freeze",
+    "objective": "answer_lm"
+  },
+  "manifest_sha256": "733c1637dc9bf6d8603d3e3cec54aae1474391f9c937fe7ef4585b1007c652d4",
+  "completed_examples": 3912,
+  "optimizer_steps": 489,
+  "last_loss": 0.11603430466493592
+}

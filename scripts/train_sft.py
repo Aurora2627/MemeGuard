@@ -1,4 +1,4 @@
-"""One pre-specified epoch of answer-only QLoRA on 1024 training examples."""
+"""One configured QLoRA epoch with complete local recovery checkpoints."""
 
 import argparse
 import math
@@ -9,7 +9,13 @@ import time
 import traceback
 from pathlib import Path
 import torch
-from peft import LoraConfig, TaskType, get_peft_model, prepare_model_for_kbit_training
+from peft import (
+    LoraConfig,
+    TaskType,
+    get_peft_model,
+    prepare_model_for_kbit_training,
+    PeftModel,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
@@ -17,12 +23,18 @@ from memeguard.common import read, save, sha, now
 from memeguard.data import audit_manifest
 from memeguard.runtime import load_model, encode, label_ids
 from memeguard.objectives import binary_label_loss
+from memeguard.checkpoints import save_checkpoint, read_checkpoint, restore_state
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--output", required=True, type=Path)
     ap.add_argument("--config", type=Path, default=ROOT / "configs/sft-v1.json")
+    ap.add_argument(
+        "--resume",
+        type=Path,
+        help="Complete checkpoint only; use a new output directory",
+    )
     args = ap.parse_args()
     out = args.output
     out.mkdir(parents=True, exist_ok=False)
@@ -63,17 +75,22 @@ def main():
             use_gradient_checkpointing=True,
             gradient_checkpointing_kwargs={"use_reentrant": False},
         )
-        model = get_peft_model(
-            model,
-            LoraConfig(
-                task_type=TaskType.CAUSAL_LM,
-                r=cfg["rank"],
-                lora_alpha=cfg["alpha"],
-                lora_dropout=0.0,
-                target_modules=["q_proj", "v_proj"],
-                bias="none",
-            ),
-        )
+        if args.resume:
+            model = PeftModel.from_pretrained(
+                model, str(args.resume), is_trainable=True
+            )
+        else:
+            model = get_peft_model(
+                model,
+                LoraConfig(
+                    task_type=TaskType.CAUSAL_LM,
+                    r=cfg["rank"],
+                    lora_alpha=cfg["alpha"],
+                    lora_dropout=0.0,
+                    target_modules=["q_proj", "v_proj"],
+                    bias="none",
+                ),
+            )
         trainable = [p for p in model.parameters() if p.requires_grad]
         if not trainable:
             raise ValueError("No trainable adapter parameters")
@@ -100,8 +117,22 @@ def main():
         optimizer.zero_grad(set_to_none=True)
         losses = []
         updates = 0
+        next_index = 0
+        if args.resume:
+            restored = read_checkpoint(args.resume, cfg, sha(manifest))
+            next_index = restored["next_index"]
+            updates = restored["updates"]
+            losses = restored["losses"]
+            if next_index != updates * cfg[
+                "gradient_accumulation"
+            ] or not 0 <= next_index < len(rows):
+                raise ValueError("Invalid checkpoint update boundary")
+            restore_state(restored, optimizer, scheduler)
+            state["resumed_from"] = str(args.resume)
         with (out / "training.jsonl").open("w", encoding="utf-8") as log:
             for index, row in enumerate(rows):
+                if index < next_index:
+                    continue
                 # Binary mode uses exactly the inference prompt, without answer leakage.
                 inputs = encode(
                     processor,
@@ -154,10 +185,17 @@ def main():
                     save(out / "status.json", state)
                     if updates % 8 == 0:
                         print("SFT_PROGRESS", record, flush=True)
-                    if updates % 64 == 0:
-                        model.save_pretrained(
-                            str(out / ("checkpoint-" + str(updates))),
-                            safe_serialization=True,
+                    if updates % cfg.get("checkpoint_every", 32) == 0:
+                        save_checkpoint(
+                            out / ("checkpoint-" + str(updates)),
+                            model,
+                            optimizer,
+                            scheduler,
+                            cfg,
+                            sha(manifest),
+                            index + 1,
+                            updates,
+                            list(losses),
                         )
         model.save_pretrained(str(out / "adapter"), safe_serialization=True)
         processor.save_pretrained(str(out / "adapter"))

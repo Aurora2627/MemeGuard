@@ -1,0 +1,14 @@
+{
+  "manifest": "D:/career-projects/data/MemeGuard/scale-v1.json",
+  "training_examples": 4096,
+  "epochs": 1,
+  "seed": 17,
+  "rank": 8,
+  "alpha": 16,
+  "learning_rate": 0.0001,
+  "gradient_accumulation": 8,
+  "vision_encoder": "frozen",
+  "evaluation": "128 threshold selection; reused 372 development comparison; official test deferred until model freeze",
+  "objective": "answer_lm",
+  "checkpoint_every": 16
+}

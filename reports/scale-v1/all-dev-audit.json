@@ -1,0 +1,15 @@
+{
+  "records": 4596,
+  "counts": {
+    "sft_train:label0": 2623,
+    "sft_train:label1": 1473,
+    "development_pilot:label0": 253,
+    "development_pilot:label1": 247
+  },
+  "decoded_images": 4596,
+  "cross_split_exact_pairs": 0,
+  "reused_images_across_splits": 0,
+  "within_split_exact_pair_duplicates": 0,
+  "manifest_sha256": "6455663e55a497a4f232cfde93ce37e6a595e46415d43b406eb88e25bdb42c4d",
+  "scope": "Pilot images only. Full-corpus image/near-duplicate audit remains pending. Image reuse alone is reported, not equated with identical image-caption leakage."
+}

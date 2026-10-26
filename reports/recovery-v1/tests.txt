@@ -1,0 +1,29 @@
+test_image_only_omits_caption (test_ablations.AblationTests.test_image_only_omits_caption) ... ok
+test_invalid_mode_rejected (test_ablations.AblationTests.test_invalid_mode_rejected) ... ok
+test_label_never_changes_messages (test_ablations.AblationTests.test_label_never_changes_messages) ... ok
+test_shuffle_has_no_self_matches (test_ablations.AblationTests.test_shuffle_has_no_self_matches) ... ok
+test_text_only_has_no_image (test_ablations.AblationTests.test_text_only_has_no_image) ... ok
+test_adapter_only_rejected (test_checkpoints.CheckpointTests.test_adapter_only_rejected) ... ok
+test_corrupt_state_rejected (test_checkpoints.CheckpointTests.test_corrupt_state_rejected) ... ok
+test_roundtrip_preserves_optimizer_scheduler_and_rng (test_checkpoints.CheckpointTests.test_roundtrip_preserves_optimizer_scheduler_and_rng) ... ok
+test_development_role_rejects_training_split (test_guard.GuardTests.test_development_role_rejects_training_split) ... ok
+test_known_confusion_matrix (test_guard.GuardTests.test_known_confusion_matrix) ... ok
+test_label_never_changes_prompt (test_guard.GuardTests.test_label_never_changes_prompt) ... ok
+test_missing_label_is_rejected (test_guard.GuardTests.test_missing_label_is_rejected) ... ok
+test_nonfinite_prediction_rejected (test_guard.GuardTests.test_nonfinite_prediction_rejected) ... ok
+test_one_class_auc_is_missing (test_guard.GuardTests.test_one_class_auc_is_missing) ... ok
+test_pair_hash_normalizes_caption_whitespace (test_guard.GuardTests.test_pair_hash_normalizes_caption_whitespace) ... ok
+test_same_image_different_caption_is_not_same_pair (test_guard.GuardTests.test_same_image_different_caption_is_not_same_pair) ... ok
+test_sft_role_accepts_only_train_split (test_guard.GuardTests.test_sft_role_accepts_only_train_split) ... ok
+test_test_rows_cannot_be_training_pilot (test_guard.GuardTests.test_test_rows_cannot_be_training_pilot) ... ok
+test_ignores_other_vocabulary_logits (test_objectives.BinaryObjectiveTests.test_ignores_other_vocabulary_logits) ... ok
+test_invalid_labels (test_objectives.BinaryObjectiveTests.test_invalid_labels) ... ok
+test_matches_inference_probability (test_objectives.BinaryObjectiveTests.test_matches_inference_probability) ... ok
+test_no_positive_labels_rejects_recall_selection (test_thresholds.ThresholdTests.test_no_positive_labels_rejects_recall_selection) ... ok
+test_nonfinite_scores_are_rejected (test_thresholds.ThresholdTests.test_nonfinite_scores_are_rejected) ... ok
+test_recall_constraint_prevents_overly_high_threshold (test_thresholds.ThresholdTests.test_recall_constraint_prevents_overly_high_threshold) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 1.736s
+
+OK

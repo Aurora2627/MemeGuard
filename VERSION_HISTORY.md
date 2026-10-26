@@ -27,3 +27,8 @@ Complete four-mode input ablation; publish aggregate metrics and paired 2000-res
 ## v0.6.0 - 2026-10-26
 
 Add 4096-example data scaling pipeline (one epoch, 512 updates), original-prefix inclusion guard, expanded train/all-dev overlap audit, pre-specified model-selection protocol, and local error review inventory. Semantic causes remain unreviewed; scaling results pending.
+
+
+## v0.6.1 - 2026-10-26
+
+Add atomic complete training checkpoints and guarded resume; 24 tests passed including CPU next-update equivalence. Preserve interrupted scaling run; restart from base using cached data because historical adapters lack optimizer state.
