@@ -1,0 +1,7 @@
+# Data scaling protocol
+
+Pre-specified 2026-10-26 before new training: expand the deterministic label-independent training prefix from 1024 to 4096. The first 1024 IDs must be included. Same base model, NF4, answer-LM objective, seed 17, LoRA rank 8/alpha 16, q_proj/v_proj, AdamW, peak LR 1e-4, microbatch 1, accumulation 8, one epoch. The larger run has 512 updates and a correspondingly rescaled schedule: this compares more data together with more computation, not data volume at equal compute. No class balancing or objective change is combined with scaling.
+
+Original 128 development rows select each model's recall >= 0.90 threshold; the reused 372-row development set compares AUROC (primary), AUPRC and operating-point confusion counts. These are development metrics, not independent test claims. The model chosen for final testing will be the highest development AUROC among baseline, SFT-v1, SFT-v2 and scaling-v1; ties use lower model complexity. Retain negative results. Before official test, freeze selected model hash and 128-row threshold, complete overlap audit, then evaluate baseline and selected model once. Do not start test acquisition or evaluation until the freeze file is written.
+
+Download and image decoding audit precede training. Original runs, adapters, weights, raw images and review captions remain outside Git. Error taxonomy is a review template until cases are manually inspected; aggregate confusion statistics alone do not establish semantic causes.

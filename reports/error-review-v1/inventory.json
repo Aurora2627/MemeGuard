@@ -1,0 +1,12 @@
+{
+  "scope": "Reused development data, first SFT adapter, frozen threshold",
+  "threshold": 0.11920291930437088,
+  "counts": {
+    "fp": 156,
+    "fn": 16
+  },
+  "review_selected": 40,
+  "joint_correct_both_single_modes_wrong": 13,
+  "semantic_causes": "unreviewed",
+  "private_review": "D:\\career-projects\\runs\\MemeGuard\\20261026-error-review-v1\\review.html"
+}

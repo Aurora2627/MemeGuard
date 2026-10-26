@@ -22,3 +22,4 @@ reports/bootstrap/*status.json
 reports/sft-v1/acquisition-status.json
 
 reports/validation-v1/acquisition-status.json
+/reports/scale-v1/acquisition-status.json

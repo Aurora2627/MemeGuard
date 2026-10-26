@@ -30,3 +30,8 @@ Archive completed binary-objective training results; add fixed-adapter modality 
 ## v0.5.1 - 2026-10-25
 
 Complete four-mode input ablation; publish aggregate metrics and paired 2000-resample AUROC intervals. Verify exact joint-score reproduction. No stable joint-vs-image-only gain established.
+
+
+## v0.6.0 - 2026-10-26
+
+Add 4096-example data scaling pipeline (one epoch, 512 updates), original-prefix inclusion guard, expanded train/all-dev overlap audit, pre-specified model-selection protocol, and local error review inventory. Semantic causes remain unreviewed; scaling results pending.
