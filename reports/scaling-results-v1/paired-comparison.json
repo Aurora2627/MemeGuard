@@ -1,0 +1,29 @@
+{
+  "scope": "Reused 372-row development set; no independent test claim",
+  "bootstrap_samples": 2000,
+  "bootstrap_seed": 17,
+  "comparisons": {
+    "baseline": {
+      "old_auroc": 0.6584958783234646,
+      "new_auroc": 0.7279983745500986,
+      "delta_auroc": 0.06950249622663407,
+      "paired_percentile_ci95": [
+        0.03514570071061583,
+        0.10402857873100216
+      ],
+      "old_predictions_sha256": "4a1960ab388527f2f6357e26c903a34b5b237dbb66a6f88157fa8da258ea2ac3",
+      "new_predictions_sha256": "a4b9d3ed7e015a15caf849e91bcc15bc700cf93401e4c089d3ab37921346b825"
+    },
+    "sft": {
+      "old_auroc": 0.6821374666202252,
+      "new_auroc": 0.7279983745500986,
+      "delta_auroc": 0.04586090792987341,
+      "paired_percentile_ci95": [
+        0.021664354923542496,
+        0.07040323040509305
+      ],
+      "old_predictions_sha256": "a1c1283fad8e908035d5127e89c2e22e9360cbeed4abe310cf42d74f1f47cc34",
+      "new_predictions_sha256": "a4b9d3ed7e015a15caf849e91bcc15bc700cf93401e4c089d3ab37921346b825"
+    }
+  }
+}

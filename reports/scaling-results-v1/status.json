@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "started": "2026-10-26T19:19:46.041645+08:00",
+  "checkpoint": "D:\\career-projects\\runs\\MemeGuard\\20261026-scale-restart-v1\\training\\checkpoint-112",
+  "scope": "Resumed 4096-row training; reused development evaluation",
+  "system_sleep_inhibition_active": true,
+  "restored_optimizer_steps": 112,
+  "restored_examples": 896,
+  "training_state_sha256": "3e8c6de0c29f04c4c9358539e41863321494e726406da378aae74c62ed5ff6ee",
+  "adapter_sha256": "34f02510d194a9c8381b1061ce12d9dc8c3a9de62a2cb5dd2ac3fae7dc805836",
+  "updated": "2026-10-26T21:14:36.756348+08:00",
+  "finished": "2026-10-26T21:25:10.148883+08:00"
+}

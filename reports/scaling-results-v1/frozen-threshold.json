@@ -1,0 +1,18 @@
+{
+  "selection": {
+    "n": 128,
+    "threshold": 0.11920291930437088,
+    "tp": 66,
+    "fp": 37,
+    "fn": 7,
+    "tn": 18,
+    "accuracy": 0.65625,
+    "precision": 0.6407766990291263,
+    "recall": 0.9041095890410958,
+    "f1": 0.75,
+    "auroc": 0.740846824408468,
+    "auprc": 0.7531603853772353
+  },
+  "scope": "Original 128 only",
+  "predictions_sha256": "3bdd2755e85b967d4a46d05ef1962a80b2a0163546fd9fd9aad9980d8ce944b1"
+}

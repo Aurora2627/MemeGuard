@@ -1,0 +1,31 @@
+{
+  "status": "complete",
+  "started": "2026-10-26T19:21:15.253951+08:00",
+  "config": {
+    "manifest": "D:/career-projects/data/MemeGuard/scale-v1.json",
+    "training_examples": 4096,
+    "epochs": 1,
+    "seed": 17,
+    "rank": 8,
+    "alpha": 16,
+    "learning_rate": 0.0001,
+    "gradient_accumulation": 8,
+    "vision_encoder": "frozen",
+    "evaluation": "128 threshold selection; reused 372 development comparison; official test deferred until model freeze",
+    "objective": "answer_lm",
+    "checkpoint_every": 16
+  },
+  "manifest_sha256": "733c1637dc9bf6d8603d3e3cec54aae1474391f9c937fe7ef4585b1007c652d4",
+  "resumed_from": "D:\\career-projects\\runs\\MemeGuard\\20261026-scale-restart-v1\\training\\checkpoint-112",
+  "completed_examples": 4096,
+  "optimizer_steps": 512,
+  "last_loss": 0.07321609044447541,
+  "finished": "2026-10-26T21:14:33.553344+08:00",
+  "examples": 4096,
+  "epochs": 1,
+  "mean_loss": 0.17246306606185158,
+  "trainable_parameters": 1089536,
+  "seconds": 6493.544747099979,
+  "peak_allocated_gib": 2.5902633666992188,
+  "peak_reserved_gib": 3.271484375
+}

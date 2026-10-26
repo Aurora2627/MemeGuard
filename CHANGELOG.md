@@ -43,3 +43,6 @@ Add atomic complete training checkpoints and guarded resume; 24 tests passed inc
 
 ## v0.6.2 - 2026-10-26
 Add a saved resume-and-evaluate runner for the complete step-112 checkpoint. Validate protocol and training-state checksum before training; preserve the old run and record a recovery receipt. Prevent automatic Windows system sleep while the runner is active, without keeping the display on. Task Scheduler launch failed on this host; the supported launcher uses the VS Code remote terminal. Training/evaluation results are pending.
+
+## v0.7.0 - 2026-10-26
+Archive completed 4096-row / 512-update training and development evaluation after complete-state recovery. AUROC 0.7280 vs 0.6821 for 1024-row SFT; paired 2000-resample bootstrap delta CI [0.0217, 0.0704]. Frozen-threshold recall 84.48%, FP112/FN27: improved ranking but 90% recall target not met. Preserve aggregate evidence, runtime, limitations and analysis source. Official test not evaluated.
