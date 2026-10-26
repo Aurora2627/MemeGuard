@@ -32,3 +32,6 @@ Add 4096-example data scaling pipeline (one epoch, 512 updates), original-prefix
 ## v0.6.1 - 2026-10-26
 
 Add atomic complete training checkpoints and guarded resume; 24 tests passed including CPU next-update equivalence. Preserve interrupted scaling run; restart from base using cached data because historical adapters lack optimizer state.
+
+## v0.6.2 - 2026-10-26
+Add a saved resume-and-evaluate runner for the complete step-112 checkpoint. Validate protocol and training-state checksum before training; preserve the old run and record a recovery receipt. Prevent automatic Windows system sleep while the runner is active, without keeping the display on. Task Scheduler launch failed on this host; the supported launcher uses the VS Code remote terminal. Training/evaluation results are pending.
