@@ -1,0 +1,66 @@
+{
+  "reviewer": "assistant visual inspection of all three saved contact sheets",
+  "scope": "12 newly introduced development false negatives only; not a causal explanation of model internals; not independent human adjudication",
+  "cases": [
+    {
+      "id": "34528",
+      "category": "gender_role_objectification",
+      "observation": "人物被比作家务工具；需要理解指代和贬损含义。"
+    },
+    {
+      "id": "02634",
+      "category": "gender_role_objectification",
+      "observation": "人物与家务工具双重比喻。"
+    },
+    {
+      "id": "40982",
+      "category": "gender_role_objectification",
+      "observation": "与 02634 配文相同、图片不同；不能视为独立语义类别。"
+    },
+    {
+      "id": "75286",
+      "category": "gender_role_objectification",
+      "observation": "把人物类比成可购买的器具；需要区分真实烹饪场景与物化表达。"
+    },
+    {
+      "id": "72048",
+      "category": "cross_modal_association",
+      "observation": "动物与人物拼接，配文单独看不直接说明攻击对象；存在去人化联想。"
+    },
+    {
+      "id": "10386",
+      "category": "cross_modal_association",
+      "observation": "书籍图像与恐怖主义配文关联；需要识别对象及群体归因，不能仅做物体描述。"
+    },
+    {
+      "id": "92738",
+      "category": "cross_modal_association",
+      "observation": "运动场景配文同时包含运动含义与负面刻板印象双关。"
+    },
+    {
+      "id": "43275",
+      "category": "disability_wordplay",
+      "observation": "轮椅图像改变配文中动作与方位表达的含义；存在残障相关双关。"
+    },
+    {
+      "id": "95613",
+      "category": "gender_related_insult",
+      "observation": "服装上的文字与配文共同构成贬损；需要读取图中文字。"
+    },
+    {
+      "id": "95830",
+      "category": "context_or_label_ambiguity",
+      "observation": "人物照片与恐怖主义配文；当前内容未明确受保护群体归因，保留标签并标记需独立复核。"
+    },
+    {
+      "id": "85761",
+      "category": "context_or_label_ambiguity",
+      "observation": "管道场景与配文缺少明显受保护群体线索；可能缺上下文或存在标注歧义，不自行改标签。"
+    },
+    {
+      "id": "82301",
+      "category": "context_or_label_ambiguity",
+      "observation": "动物图片与拉长拼写的词语存在普通词义和侮辱词义歧义；需结合标注规范复核。"
+    }
+  ]
+}

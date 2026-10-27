@@ -38,3 +38,6 @@ Add a saved resume-and-evaluate runner for the complete step-112 checkpoint. Val
 
 ## v0.7.0 - 2026-10-26
 Archive completed 4096-row / 512-update training and development evaluation after complete-state recovery. AUROC 0.7280 vs 0.6821 for 1024-row SFT; paired 2000-resample bootstrap delta CI [0.0217, 0.0704]. Frozen-threshold recall 84.48%, FP112/FN27: improved ranking but 90% recall target not met. Preserve aggregate evidence, runtime, limitations and analysis source. Official test not evaluated.
+
+## v0.8.0 - 2026-10-27
+Add paired development error transitions and visual review of 12 newly introduced false negatives. Freeze the final baseline-versus-scaling model, thresholds, sources and data identities before test acquisition. Add cached test acquisition, exact-pair overlap audit and prefix-validated interrupted inference recovery. 27 tests pass. Final test acquisition/evaluation is pending; no final test metrics claimed.

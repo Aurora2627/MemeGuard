@@ -1,0 +1,18 @@
+{
+  "n": 372,
+  "old_threshold": 0.11920291930437088,
+  "new_threshold": 0.11920291930437088,
+  "transitions": {
+    "label1:1->1": 146,
+    "label1:1->0": 12,
+    "label1:0->0": 15,
+    "label0:1->1": 111,
+    "label0:0->0": 41,
+    "label0:1->0": 45,
+    "label1:0->1": 1,
+    "label0:0->1": 1
+  },
+  "new_false_negatives": 12,
+  "changed_predictions": 59,
+  "semantic_review": "pending visual inspection; transitions alone do not identify causes"
+}

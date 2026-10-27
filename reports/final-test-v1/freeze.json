@@ -1,0 +1,40 @@
+{
+  "created": "2026-10-27T09:36:17.568609+08:00",
+  "selection": "Highest reused-development AUROC among baseline, SFT-v1, SFT-v2 and scaling-v1, as pre-specified",
+  "candidate_auroc": {
+    "baseline": 0.6584958783234646,
+    "sft_v1": 0.6821374666202252,
+    "sft_v2": 0.67805932893266,
+    "scaling_v1": 0.7279983745500986
+  },
+  "adapter": "D:\\career-projects\\runs\\MemeGuard\\20261026-scale-resume112-v1\\training\\adapter",
+  "thresholds": {
+    "baseline": 0.531209409236908,
+    "selected": 0.11920291930437088
+  },
+  "hashes": {
+    "D:\\career-projects\\MemeGuard\\configs\\sources.lock.json": "f7f1547b3c9148b9a3ef3afa22143f085fc5d20b48f80724a9cfcd654b59b9ad",
+    "D:\\career-projects\\MemeGuard\\configs\\thresholds-v1.json": "fe4b3ed62c5236003b1c1fe724db8cbec00908265804742933df6b3a18649e3b",
+    "D:\\career-projects\\MemeGuard\\configs\\sft-v3-restart.json": "ba001d85da2d3a19ac180a59c252bd24e7958ce18c871b712cedf92b05f44124",
+    "D:\\career-projects\\runs\\MemeGuard\\20261026-scale-resume112-v1\\frozen-threshold.json": "1759fbbe42d7119a591fa0edced0878c66eff32ebd30abab5db3de64028f49ca",
+    "D:\\career-projects\\runs\\MemeGuard\\20261026-scale-resume112-v1\\training\\adapter\\adapter_config.json": "7b6c344b11355e6d9f4aaa8d9aa67b253d23a35e0668cb79dde2b861c71083cc",
+    "D:\\career-projects\\runs\\MemeGuard\\20261026-scale-resume112-v1\\training\\adapter\\adapter_model.safetensors": "04c5d2e2e847be19a81ac8308b956280232e1f629c14d869d98ccbef026dfc35",
+    "D:\\career-projects\\data\\MemeGuard\\scale-v1.json": "733c1637dc9bf6d8603d3e3cec54aae1474391f9c937fe7ef4585b1007c652d4",
+    "D:\\career-projects\\data\\MemeGuard\\scale-and-all-dev-v1.json": "6455663e55a497a4f232cfde93ce37e6a595e46415d43b406eb88e25bdb42c4d",
+    "D:\\career-projects\\MemeGuard\\scripts\\final_test.py": "1f7661a3229a33c2106429da2eaedc1961d3d691bb60e8b33aad21b2723e146d",
+    "D:\\career-projects\\MemeGuard\\scripts\\prepare_final.py": "a823ad175afaf11cd8b142f8ffb70404bd50135f584f602011436409ddc21eae",
+    "D:\\career-projects\\MemeGuard\\src\\memeguard\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "D:\\career-projects\\MemeGuard\\src\\memeguard\\ablations.py": "f348478b68fe5242ce8962465070815e1615d276a17390b7b8c5a8fefa3a0686",
+    "D:\\career-projects\\MemeGuard\\src\\memeguard\\checkpoints.py": "9c848cbb5e1ef26499cb236052d89565fdddfe4abf77e68206a6144927e98fb8",
+    "D:\\career-projects\\MemeGuard\\src\\memeguard\\common.py": "5c1c3231c03e851528326655131cbe53891eaa92bc0130f8ee4564a4a57f206b",
+    "D:\\career-projects\\MemeGuard\\src\\memeguard\\data.py": "54a8917ef9a0c0e9dd2e24305c8f7f30ea42adccf1394faa3ab8a84b15676157",
+    "D:\\career-projects\\MemeGuard\\src\\memeguard\\metrics.py": "f0b49cbdcc2e32b3cfcb4824bd9e208f9df5f49728ab6f35ce8e0ae4709fb980",
+    "D:\\career-projects\\MemeGuard\\src\\memeguard\\objectives.py": "0f9fdc65b0d067bb6b05941c1e31cef4385af6e5352e7010a8f71544d4f60f0e",
+    "D:\\career-projects\\MemeGuard\\src\\memeguard\\runtime.py": "c5a7a49ca1cb92ebee3b4a8d57566d5aa17e1a6e03c0da5fa79889b08393e24b",
+    "D:\\career-projects\\models\\MemeGuard\\895c3a49bc3fa70a340399125c650a463535e71c\\identity.json": "349a8860f5b39d5c72365cdeaf73dc8c3d4de72841feb49074518d1fe0dfc270"
+  },
+  "test_split": "test_seen",
+  "expected_test_rows": 1000,
+  "protocol": "Acquire full pinned split; audit exact pair leakage and image reuse against 4096 train + 500 dev; evaluate baseline then selected once. No post-test tuning.",
+  "limitations": "Upstream annotations were previously downloaded for schema/count audit. Test images and model predictions have not been used for development. Pretraining exposure is unknown; near-duplicate detection is not exhaustive."
+}
