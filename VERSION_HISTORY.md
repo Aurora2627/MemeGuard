@@ -41,3 +41,6 @@ Archive completed 4096-row / 512-update training and development evaluation afte
 
 ## v0.8.0 - 2026-10-27
 Add paired development error transitions and visual review of 12 newly introduced false negatives. Freeze the final baseline-versus-scaling model, thresholds, sources and data identities before test acquisition. Add cached test acquisition, exact-pair overlap audit and prefix-validated interrupted inference recovery. 27 tests pass. Final test acquisition/evaluation is pending; no final test metrics claimed.
+
+## v0.8.1 - 2026-10-27
+Resume interrupted frozen final-test acquisition from cached images with a manually triggered Windows Scheduled Task under the current user (S4U, limited privileges). Verify progress beyond 625/1000 with the frozen evaluator unchanged. Preserve interruption facts; no SSH disconnect survival test or final test metrics claimed.

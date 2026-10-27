@@ -1,0 +1,12 @@
+{
+  "recorded": "2026-10-27T10:34:36.693503+08:00",
+  "previous_progress": 575,
+  "resumed_progress_verified": 625,
+  "task": "MemeGuard-Final-Test-v1",
+  "principal": "current Windows user; S4U; limited privileges",
+  "trigger": "manual only; no recurring trigger",
+  "status": "acquiring; final metrics pending",
+  "freeze_unchanged": true,
+  "ssh_disconnect_test": "not performed",
+  "old_exit_cause": "unknown; no Python process and no exception log on inspection"
+}
