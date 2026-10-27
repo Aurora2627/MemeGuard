@@ -1,58 +1,51 @@
-> 最新结果（v0.7.0）：4096 样本扩展训练与开发评估已完成。372 条开发集 AUROC 0.7280（首轮 0.6821），但冻结阈值召回 84.48%，未达到 90% 目标。详见[扩展训练结果](docs/scaling-results.zh-CN.md)。最终测试方案已冻结，测试集获取及评估进行中，详见[最终验证与漏报分析](docs/final-validation.zh-CN.md)。
+# MemeGuard 图文内容风险识别
 
-# MemeGuard：面向图文内容审核的多模态风险识别
+基于 Qwen2-VL-2B 的英文图文仇恨内容识别研究原型，面向社区内容初筛与人工复核。输入图片与配文，输出二分类条件分数、阈值判定和批量评估结果。
 
-基于 Qwen2-VL-2B 的图文联合分类实验，面向社区帖子、商品宣传图等内容进入人工审核前的风险筛查。当前使用英文 Hateful Memes 数据开发，目标是验证图文理解、监督微调与检索增强的方法；尚不能代表中文电商违规识别或线上审核效果。
+## 最终结果
 
-## 实现范围
+2026-10-27 完成 4,096 条样本微调与 1,000 条官方 test_seen 最终评估，模型和阈值在测试图片获取及推理前冻结。
 
-- 固定模型、数据与参考代码版本，记录下载校验信息。
-- 对开发样本进行图片解码、标签检查及跨划分图文对重复检查。
-- 使用模型最后一个位置的 0/1 标签 logits 计算条件风险分数，统计 AUROC、AUPRC、F1、混淆矩阵、耗时和显存。
-- 使用 NF4 4-bit、LoRA 与梯度检查点进行训练容量测试，检查梯度和参数实际更新。
+| 指标 | 原始模型 | 微调模型 |
+|---|---:|---:|
+| AUROC | 0.6544 | 0.7289 |
+| AUPRC | 0.6336 | 0.6958 |
+| F1 | 0.6732 | 0.6963 |
+| 召回率 | 91.63% | 86.33% |
+| FP / FN | 395 / 41 | 302 / 67 |
 
-首轮 128 条开发样本基线已完成：AUROC 0.6387、AUPRC 0.6616、F1 0.7263、准确率 0.5938；TP/FP/FN/TN 为 69/48/4/7，误报较高。两步 QLoRA 容量测试完成真实参数更新，峰值显存预留约 3.24 GiB，但不是完整训练成果。结果文件见 reports/first-phase。
+分类指标采用各自提前在开发集确定的阈值。误报减少 93 条，但漏报增加 26 条，不能声称保持高召回的误报优化。默认 0.5 阈值下微调模型召回率仅 43.27%，不可当成默认业务阈值。分数未经概率校准。
 
-第二轮固定 1024 条训练样本、1 epoch、rank=8、alpha=16、学习率 1e-4、梯度累积 8、seed=17，共 128 次优化器更新，视觉编码器冻结。第二轮已完成：1024 条训练样本、128 次优化器更新，训练约 35.9 分钟，峰值预留显存 3.27 GiB。在相同 128 条开发样本上，AUROC 0.6387→0.6841，AUPRC 0.6616→0.7091；固定 0.5 阈值时，误报 48→9，但漏报 4→39，F1 0.7263→0.5862，召回率 0.9452→0.4658，不能声称整体审核效果提升。
+完整协议、两种阈值、配对置信区间与限制见[最终报告](docs/final-validation.zh-CN.md)，聚合证据见[结果文件](reports/final-test-v1)。
 
-在原 128 条开发样本上以召回率至少 90% 为约束选择并冻结阈值：baseline=0.5312094092，SFT=0.1192029193。该步骤属于开发集阈值选择，不是独立泛化成绩。其余 372 条 dev_seen 样本用于后续对照，官方 test_seen 仍保留。完整训练结果见 reports/sft-v1，协议见 docs/experiment-plan.md。
+## 方法与实现
+
+- PyTorch / Transformers / PEFT 训练流程，NF4 双重量化、BF16、SDPA、梯度累积和梯度检查点。
+- 冻结视觉编码器，注意力 q/v 投影 LoRA，rank=8、alpha=16，1,089,536 个可训练参数。
+- 4,096 条训练样本、1 epoch、512 次更新；完整状态检查点与协议验证，支持训练恢复。
+- 500 条开发数据用于阈值及模型选择；最终测试 1,000 条，不用测试结果重新调参。
+- 跨划分精确图像与配文重复审计、输入消融、漏报案例复核和预测续跑。
+
+## 实验记录
+
+- [早期训练与输入消融](docs/experiment-report.zh-CN.md)：1,024 条适配器的四组消融，完整图文优于仅图片的增益尚不稳定。
+- [扩展训练](docs/scaling-results.zh-CN.md)：4,096 条、512 次更新和开发集比较。数据量与计算量同时增加，不能视为固定计算量消融。
+- [最终报告](docs/final-validation.zh-CN.md)：冻结评估、1,000 条测试结果及开发漏报分析。
+- [恢复说明](docs/recovery.md)：完整检查点与实际验证范围。
+- [版本记录](CHANGELOG.md)：保留每轮实验及中断事实。
 
 ## 运行环境
 
-Windows，Python 3.11.9，PyTorch 2.6.0 / CUDA 12.4，torchvision 0.21.0，Transformers 4.53.2，PEFT 0.17.1，bitsandbytes 0.48.1。目标显卡为 RTX 4060 Laptop 8GB；训练可行性以实际容量测试为准。依赖版本见 requirements-runtime.txt，PyTorch 使用官方 cu124 发行包。
+Windows，Python 3.11.9，PyTorch 2.6.0 / CUDA 12.4，torchvision 0.21.0，Transformers 4.53.2，PEFT 0.17.1，bitsandbytes 0.48.1。使用 RTX 4060 Laptop 8GB 完成训练和推理，训练峰值 PyTorch 预留约 3.27 GiB。锁定依赖见 requirements-runtime.txt，PyTorch 使用官方 cu124 发行包。
 
-VS Code 已提供 Python 调试入口。实验输出目录必须使用新目录，以保留历史结果。原始数据、权重与适配器位于项目外，不进入 Git。
+VS Code 提供 Python 调试入口。原始数据、模型权重、适配器与逐条预测保存在项目外；新实验使用独立输出目录，保留历史结果。
 
-## 目录
+## 代码入口
 
-- src/memeguard：数据审计、指标与模型输入构造。
-- scripts：资源准备、基线评估与训练容量测试。
-- configs/sources.lock.json：模型、数据及参考仓库的固定版本。
-- tests：数据边界、指标与提示词标签隔离检查。
-- docs/experiment-plan.md：评估协议和后续实验。
-- vendor/RGCL：参考实现的固定 Git 子模块，不自动运行其中脚本。
+src/memeguard 包含数据审计、模型输入和指标计算；scripts 包含数据准备、训练、评估及报告分析。scripts/final_test.py 是冻结最终测试入口；scripts/analyze_final_test.py 复核已保存预测并生成聚合统计，不重新训练或调参。configs/sources.lock.json 固定模型、数据和参考代码版本。
 
-## 方法与来源
+## 来源与适用范围
 
-参考 [RA-HMD / RGCL](https://github.com/JingbiaoMei/RGCL) 与 [EMNLP 2025 论文](https://aclanthology.org/2025.emnlp-main.1215/)，本仓库开发独立的 Transformers/PEFT 实验流程。当前没有实现论文完整的联合损失与第二阶段检索训练，不声称复现论文结果。
+模型来自 [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct)，数据来自 [RA-HMD](https://huggingface.co/datasets/Jingbiao/RA-HMD)，参考 [RGCL](https://github.com/JingbiaoMei/RGCL) 与其[论文](https://aclanthology.org/2025.emnlp-main.1215/)。本仓库实现独立的 Transformers/PEFT 实验流程，未实现论文完整联合损失和第二阶段检索训练，不声称达到论文结果。
 
-模型来自 [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct)，数据来自 [Jingbiao/RA-HMD](https://huggingface.co/datasets/Jingbiao/RA-HMD)。参考代码及数据分别遵循各自许可证，详见 NOTICE.md。
-
-
-## Second training round
-
-The first adapter scored AUROC 0.6821 versus baseline 0.6585 on 372 additional development records, but at frozen thresholds both recalled 90.80%, with 156 versus 155 false positives. Thus no high-recall operational improvement was established. Round two completed: AUROC 0.6781, frozen-threshold recall 92.53%, 157 false positives and 13 false negatives on reused development data. These 372 examples now serve as reused development data, not untouched validation. See [protocol](docs/round-two.md).
-
-
-## 完整实验报告与输入消融
-
-[实验报告](docs/experiment-report.zh-CN.md)记录两轮训练结果、数据划分和四组输入消融协议。第二轮未明显降低高召回误报；四组消融已完成：完整图文 AUROC 0.6821、仅配文 0.5990、仅图片 0.6673、错配图片 0.5289。完整图文优于仅图片的增益尚不稳定，详见实验报告。
-
-
-## 数据规模对照与错误分析
-
-4096 条样本、512 次更新已完成；结果见[扩展训练报告](docs/scaling-results.zh-CN.md)。已逐条分析 12 条新增漏报，保留标签歧义与高召回不足的限制，详见[最终验证](docs/final-validation.zh-CN.md)。
-
-## 训练中断恢复
-
-完整检查点保存适配器、优化器、调度器和随机状态，并验证配置与数据身份后续跑。[恢复说明](docs/recovery.md)记录实际验证范围。
+参考代码及数据遵循各自许可，见 NOTICE.md。未验证中文内容、线上吞吐或真实审核成本；精确重复审计不排除近重复或预训练暴露。

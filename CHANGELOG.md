@@ -1,5 +1,10 @@
 # 更新记录
 
+## v0.9.0 - 2026-10-27
+
+Complete the frozen 1,000-example test_seen evaluation. Baseline vs selected AUROC 0.654448 vs 0.728864; AUPRC 0.633633 vs 0.695780. At development-selected frozen thresholds, FP 395 to 302 and FN 41 to 67; recall decreases from 91.63% to 86.33%. Archive aggregate metrics, audit and hash receipts; add prediction identity/metric verification and paired 2,000-resample analysis. Publish final report with both operating points, development-only ablation scope and limitations. No test tuning or retraining.
+
+
 ## v0.1.0 — 2026-10-23
 
 新增固定数据与模型来源、CUDA 开发流程、图文数据审计、128 条开发集基线脚本、两步 QLoRA 容量测试和 VS Code 调试入口。完成 144 张图片审计与 8 项单元测试。模型仍在下载，尚无评分或正式训练结果。

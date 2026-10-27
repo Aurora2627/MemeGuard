@@ -1,0 +1,13 @@
+{
+  "test_records": 1000,
+  "comparison_records": 4596,
+  "test_label_counts": {
+    "1": 490,
+    "0": 510
+  },
+  "cross_split_exact_test_pairs": 0,
+  "test_images_reused_across_splits": 0,
+  "annotation_sha256": "dd0d387bacd67ce4db39fcfd805a0b4b9e10fe0feaafc3b189b41c4ef2e36a16",
+  "manifest_sha256": "5102f04393154d4ac45567b12acc808719d86dcd090889c08c48949ea6554c84",
+  "scope": "4096 used training + all 500 dev + 1000 test images; exact decoded image-caption duplicates audited. Near duplicates and pretraining exposure are not excluded."
+}

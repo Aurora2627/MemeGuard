@@ -1,0 +1,48 @@
+{
+  "scope": "Official test_seen, 1000 paired examples; frozen models and development-selected thresholds",
+  "bootstrap_samples": 2000,
+  "bootstrap_seed": 17,
+  "bootstrap_limitations": "Example resampling only; does not include training-seed variation, semantic duplicate clustering, model-selection uncertainty or pretraining exposure.",
+  "model_selection": "Highest AUROC on reused 372-row development set among already specified candidates; no test tuning",
+  "freeze_sha256": "17ce20005790f9edaab8995699b2d10e73a41578aa1b48d47e14fb6137868751",
+  "analysis_source_sha256": "ba7af160f73bf51e29ea9215bef2d72039ce390ac42853f7574bbc69a942bedb",
+  "comparisons": {
+    "auroc": {
+      "baseline": 0.6544477791116448,
+      "selected": 0.7288635454181673,
+      "delta": 0.07441576630652258,
+      "paired_percentile_ci95": [
+        0.053510920448895105,
+        0.09593618924500509
+      ],
+      "valid_resamples": 2000
+    },
+    "auprc": {
+      "baseline": 0.6336334924383737,
+      "selected": 0.695780301741681,
+      "delta": 0.06214680930330729,
+      "paired_percentile_ci95": [
+        0.03912207888355264,
+        0.0837560754950735
+      ],
+      "valid_resamples": 2000
+    }
+  },
+  "frozen_operating_point_deltas": {
+    "tp": -26,
+    "fp": -93,
+    "fn": 26,
+    "tn": 93,
+    "accuracy": 0.06700000000000006,
+    "precision": 0.051457754535054745,
+    "recall": -0.05306122448979589,
+    "f1": 0.023132878005441726
+  },
+  "evidence_sha256": {
+    "baseline-metrics.json": "e8cda6ddb169207a138b7b92d3a31ffd24e15010b7495abb4c0fea7d38c17865",
+    "selected-metrics.json": "c0f3c149113eda78bb318a7d83c522efa14762cfab9ac0bade6dcc1458c6e025",
+    "test-audit.json": "f0e14ce9a25766fe60e6ae1da339f9c7b24741a04b2b4828833d7bd29824bffc",
+    "status.json": "ea8eba3fdfab9767a6f6053f51e5c9b88e001021deafe94bf4a61b3624614780",
+    "freeze-receipt.json": "a60b63d63eccdb01c1d7b44776e566b6eb4d8769138775439873bd058166d448"
+  }
+}

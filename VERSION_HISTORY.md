@@ -1,5 +1,10 @@
 # 版本历史
 
+## v0.9.0 - 2026-10-27
+
+Complete the frozen 1,000-example test_seen evaluation. Baseline vs selected AUROC 0.654448 vs 0.728864; AUPRC 0.633633 vs 0.695780. At development-selected frozen thresholds, FP 395 to 302 and FN 41 to 67; recall decreases from 91.63% to 86.33%. Archive aggregate metrics, audit and hash receipts; add prediction identity/metric verification and paired 2,000-resample analysis. Publish final report with both operating points, development-only ablation scope and limitations. No test tuning or retraining.
+
+
 v0.1.0：实验基础与验证；完整实验成绩待后续版本记录。
 
 v0.2.0：首轮结果与固定预算 SFT；第二轮成绩待后续版本记录。
