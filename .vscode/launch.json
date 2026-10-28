@@ -34,6 +34,34 @@
         "HF_HUB_OFFLINE": "1"
       },
       "console": "integratedTerminal"
+    },
+    {
+      "name": "审核工作台 API",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/serve.py",
+      "cwd": "${workspaceFolder}",
+      "python": "D:/career-projects/envs/memeguard/Scripts/python.exe",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src",
+        "HF_HUB_OFFLINE": "1"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "审核工作台 CUDA worker",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/service_worker.py",
+      "cwd": "${workspaceFolder}",
+      "python": "D:/career-projects/envs/memeguard/Scripts/python.exe",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src",
+        "HF_HUB_OFFLINE": "1"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": true
     }
   ]
 }

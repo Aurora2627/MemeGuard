@@ -1,0 +1,80 @@
+{
+  "scope": "Synthetic real-CUDA engineering smoke; not a quality evaluation or human study",
+  "results": [
+    {
+      "id": "4e2e039aa27f40468201ee15a73b8b19",
+      "release": "qlora-v0.9.0",
+      "state": "succeeded",
+      "score": 0.07585817575454712,
+      "threshold": 0.11920291930437088,
+      "bucket": "standard",
+      "seconds": 4.621407099999487
+    },
+    {
+      "id": "5b3bace3186a46048be082b0f2d74bb3",
+      "release": "baseline-v0.9.0",
+      "state": "succeeded",
+      "score": 0.29421496391296387,
+      "threshold": 0.531209409236908,
+      "bucket": "standard",
+      "seconds": 0.6707343000452965
+    },
+    {
+      "feedback_export": {
+        "export_id": "20261028-152020-52374f61",
+        "created": 1793172020.2523074,
+        "accepted": 0,
+        "train": 0,
+        "validation": 0,
+        "train_class_counts": {
+          "0": 0,
+          "1": 0
+        },
+        "train_ready": false,
+        "readiness_rule": "32 training examples, 5 per class: operational floor, not statistical guarantee",
+        "excluded": [],
+        "protected_records": 1500,
+        "protected_manifests": {
+          "D:\\career-projects\\data\\MemeGuard\\scale-and-all-dev-v1.json": "6455663e55a497a4f232cfde93ce37e6a595e46415d43b406eb88e25bdb42c4d",
+          "D:\\career-projects\\runs\\MemeGuard\\20261027-final-test-v1\\test-manifest.json": "5102f04393154d4ac45567b12acc808719d86dcd090889c08c48949ea6554c84"
+        },
+        "manifest_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "scope": "Explicit-consent latest human labels; exact decoded-image holdout audit; near duplicates not excluded",
+        "training_config_sha256": "8fac73bb42b0ee0a0cd8ad22d3f8114d31e24b96767b068b61b0708f1cee1dbd"
+      }
+    }
+  ],
+  "metrics": {
+    "submissions": 2,
+    "jobs": {
+      "succeeded": 2
+    },
+    "oldest_queued_seconds": 0,
+    "workers": [
+      {
+        "id": "047f0748d84b420d815dd982c52ef365",
+        "state": "idle",
+        "detail": "Ready",
+        "updated": 1793172013.7052698
+      }
+    ],
+    "recent_successes": 2,
+    "recent_latency_p50": 4.621407099999487,
+    "recent_latency_p95": 4.621407099999487,
+    "reviewed": 0,
+    "review_disagreements": 0,
+    "score_histogram": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "scope": "Local observed traffic; not unbiased accuracy or business prevalence"
+  }
+}

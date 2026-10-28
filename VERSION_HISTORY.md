@@ -1,5 +1,9 @@
 # 版本历史
 
+## v0.10.0 - 2026-10-28
+
+新增本地社区图文审核工作台：FastAPI 图文接入、SQLite 持久化队列、独立 CUDA worker、冻结版本与阈值分流、追加式人工复核、授权反馈留出集审计与现有 SFT 交接。提供主模型/基线切换回滚、任务租约恢复、心跳与运行指标、VS Code 调试配置和使用文档。54 项测试通过，真实 CUDA HTTP 与浏览器上传/复核流程验证完成。固定留出集审计 1,500 条，合成测试未进入训练；没有新增人工反馈训练或线上质量指标。v0.9.0 模型与离线实验结果保持不变。证据见 reports/service-v1。
+
 ## v0.9.0 - 2026-10-27
 
 Complete the frozen 1,000-example test_seen evaluation. Baseline vs selected AUROC 0.654448 vs 0.728864; AUPRC 0.633633 vs 0.695780. At development-selected frozen thresholds, FP 395 to 302 and FN 41 to 67; recall decreases from 91.63% to 86.33%. Archive aggregate metrics, audit and hash receipts; add prediction identity/metric verification and paired 2,000-resample analysis. Publish final report with both operating points, development-only ablation scope and limitations. No test tuning or retraining.

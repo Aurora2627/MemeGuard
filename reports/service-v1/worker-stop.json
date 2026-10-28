@@ -1,0 +1,20 @@
+{
+  "workers": [
+    {
+      "id": "047f0748d84b420d815dd982c52ef365",
+      "state": "idle",
+      "detail": "Ready",
+      "updated": 1793172284.1432822
+    },
+    {
+      "id": "c13087209aa240c1bf70bf8abb19e2c3",
+      "state": "stopped",
+      "detail": "Worker stopped; queued jobs persist",
+      "updated": 1793172545.8864782
+    }
+  ],
+  "jobs": {
+    "succeeded": 2
+  },
+  "scope": "Graceful stop after idle; persisted existing results"
+}

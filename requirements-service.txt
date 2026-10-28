@@ -1,0 +1,5 @@
+# Additional service dependencies; model/training dependencies remain in the Windows lock.
+fastapi==0.162.0
+uvicorn==0.54.0
+httpx==0.28.1
+pydantic==2.14.1

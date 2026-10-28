@@ -23,3 +23,9 @@ reports/sft-v1/acquisition-status.json
 
 reports/validation-v1/acquisition-status.json
 /reports/scale-v1/acquisition-status.json
+
+# Service runtime stays outside the repository
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+/service-state/

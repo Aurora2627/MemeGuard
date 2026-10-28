@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "default": "qlora-v0.9.0",
+  "releases": {
+    "qlora-v0.9.0": {
+      "variant": "selected",
+      "freeze": "reports/final-test-v1/freeze.json"
+    },
+    "baseline-v0.9.0": {
+      "variant": "baseline",
+      "freeze": "reports/final-test-v1/freeze.json"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+D:\career-projects\envs\memeguard\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_image_only_omits_caption (test_ablations.AblationTests.test_image_only_omits_caption) ... ok
+test_invalid_mode_rejected (test_ablations.AblationTests.test_invalid_mode_rejected) ... ok
+test_label_never_changes_messages (test_ablations.AblationTests.test_label_never_changes_messages) ... ok
+test_shuffle_has_no_self_matches (test_ablations.AblationTests.test_shuffle_has_no_self_matches) ... ok
+test_text_only_has_no_image (test_ablations.AblationTests.test_text_only_has_no_image) ... ok
+test_adapter_only_rejected (test_checkpoints.CheckpointTests.test_adapter_only_rejected) ... ok
+test_corrupt_state_rejected (test_checkpoints.CheckpointTests.test_corrupt_state_rejected) ... ok
+test_roundtrip_preserves_optimizer_scheduler_and_rng (test_checkpoints.CheckpointTests.test_roundtrip_preserves_optimizer_scheduler_and_rng) ... ok
+test_changed_asset_or_freeze_rejected (test_final_protocol.FinalProtocolTests.test_changed_asset_or_freeze_rejected) ... ok
+test_pairing_rejects_changed_membership (test_final_protocol.FinalProtocolTests.test_pairing_rejects_changed_membership) ... ok
+test_prediction_resume_identity (test_final_protocol.FinalProtocolTests.test_prediction_resume_identity) ... ok
+test_development_role_rejects_training_split (test_guard.GuardTests.test_development_role_rejects_training_split) ... ok
+test_known_confusion_matrix (test_guard.GuardTests.test_known_confusion_matrix) ... ok
+test_label_never_changes_prompt (test_guard.GuardTests.test_label_never_changes_prompt) ... ok
+test_missing_label_is_rejected (test_guard.GuardTests.test_missing_label_is_rejected) ... ok
+test_nonfinite_prediction_rejected (test_guard.GuardTests.test_nonfinite_prediction_rejected) ... ok
+test_one_class_auc_is_missing (test_guard.GuardTests.test_one_class_auc_is_missing) ... ok
+test_pair_hash_normalizes_caption_whitespace (test_guard.GuardTests.test_pair_hash_normalizes_caption_whitespace) ... ok
+test_same_image_different_caption_is_not_same_pair (test_guard.GuardTests.test_same_image_different_caption_is_not_same_pair) ... ok
+test_sft_role_accepts_only_train_split (test_guard.GuardTests.test_sft_role_accepts_only_train_split) ... ok
+test_test_rows_cannot_be_training_pilot (test_guard.GuardTests.test_test_rows_cannot_be_training_pilot) ... ok
+test_ignores_other_vocabulary_logits (test_objectives.BinaryObjectiveTests.test_ignores_other_vocabulary_logits) ... ok
+test_invalid_labels (test_objectives.BinaryObjectiveTests.test_invalid_labels) ... ok
+test_matches_inference_probability (test_objectives.BinaryObjectiveTests.test_matches_inference_probability) ... ok
+test_batch_is_all_or_nothing (test_service.ServiceTests.test_batch_is_all_or_nothing) ... ok
+test_claim_is_atomic_under_concurrency (test_service.ServiceTests.test_claim_is_atomic_under_concurrency) ... ok
+test_consent_is_required_at_upload_and_review (test_service.ServiceTests.test_consent_is_required_at_upload_and_review) ... ok
+test_cross_origin_write_rejected (test_service.ServiceTests.test_cross_origin_write_rejected) ... ok
+test_database_survives_store_recreation (test_service.ServiceTests.test_database_survives_store_recreation) ... ok
+test_demo_feedback_never_enters_training (test_service.ServiceTests.test_demo_feedback_never_enters_training) ... ok
+test_expired_lease_recovers_and_stale_result_is_rejected (test_service.ServiceTests.test_expired_lease_recovers_and_stale_result_is_rejected) ... ok
+test_export_training_config_tampering_is_rejected (test_service.ServiceTests.test_export_training_config_tampering_is_rejected) ... ok
+test_feedback_excludes_holdout_and_unconsented_content (test_service.ServiceTests.test_feedback_excludes_holdout_and_unconsented_content) ... ok
+test_feedback_uses_human_label_and_remains_not_train_ready (test_service.ServiceTests.test_feedback_uses_human_label_and_remains_not_train_ready) ... ok
+test_frozen_threshold_used_for_priority (test_service.ServiceTests.test_frozen_threshold_used_for_priority) ... ok
+test_idempotency_and_exact_pair_deduplication (test_service.ServiceTests.test_idempotency_and_exact_pair_deduplication) ... ok
+test_invalid_image_rejected_without_submission (test_service.ServiceTests.test_invalid_image_rejected_without_submission) ... ok
+test_invalid_score_not_persisted (test_service.ServiceTests.test_invalid_score_not_persisted) ... ok
+test_live_worker_readiness_and_stale_worker (test_service.ServiceTests.test_live_worker_readiness_and_stale_worker) ... ok
+test_monitoring_and_not_ready_without_worker (test_service.ServiceTests.test_monitoring_and_not_ready_without_worker) ... ok
+test_no_arbitrary_file_download (test_service.ServiceTests.test_no_arbitrary_file_download) ... ok
+test_non_object_json_returns_validation_error (test_service.ServiceTests.test_non_object_json_returns_validation_error) ... ok
+test_priority_queue_precedes_newer_standard_item (test_service.ServiceTests.test_priority_queue_precedes_newer_standard_item) ... ok
+test_release_switch_does_not_mutate_existing_jobs (test_service.ServiceTests.test_release_switch_does_not_mutate_existing_jobs) ... ok
+test_retry_preserves_original_result (test_service.ServiceTests.test_retry_preserves_original_result) ... ok
+test_retry_respects_queue_capacity (test_service.ServiceTests.test_retry_respects_queue_capacity) ... ok
+test_review_requires_scored_job (test_service.ServiceTests.test_review_requires_scored_job) ... ok
+test_reviews_are_append_only_with_revision_check (test_service.ServiceTests.test_reviews_are_append_only_with_revision_check) ... ok
+test_same_image_different_caption_is_not_duplicate (test_service.ServiceTests.test_same_image_different_caption_is_not_duplicate) ... ok
+test_worker_heartbeat_extends_lease (test_service.ServiceTests.test_worker_heartbeat_extends_lease) ... ok
+test_write_requires_session_token (test_service.ServiceTests.test_write_requires_session_token) ... ok
+test_no_positive_labels_rejects_recall_selection (test_thresholds.ThresholdTests.test_no_positive_labels_rejects_recall_selection) ... ok
+test_nonfinite_scores_are_rejected (test_thresholds.ThresholdTests.test_nonfinite_scores_are_rejected) ... ok
+test_recall_constraint_prevents_overly_high_threshold (test_thresholds.ThresholdTests.test_recall_constraint_prevents_overly_high_threshold) ... ok
+
+----------------------------------------------------------------------
+Ran 54 tests in 6.509s
+
+OK
